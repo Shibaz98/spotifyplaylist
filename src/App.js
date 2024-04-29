@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useCallback, useState } from 'react';
 import './App.css';
+import SearchBar from './SearchBar/SearchBar';
+import SearchResults from './SearchResults/SearchResults';
 
 function App() {
+
+  const[searchResults, setSearchResults] = useState([]); 
+
+  const search = useCallback((term) =>{
+    console.log(term)
+  })
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className='highlight'>Spotify Playlist App</h1>
+      <div className='App'>
+        <SearchBar onSearch={search}/>  
+        <div className='App-playlist'>
+          <SearchResults/> 
+        </div>
+      </div>
     </div>
   );
 }
