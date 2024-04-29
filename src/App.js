@@ -10,10 +10,13 @@ function App() {
   const [playlistName, setPlaylistName] = useState('');
   const [playlistTracks, setPlaylistTracks] = useState([]); 
 
+//Today work on Playlist and Tracklist component, understand how it interacts with Playlisttracks state setter 
 
-  const search = useCallback((term) =>{
-    console.log(term)
-  });
+
+  const search = (term) =>{
+      setSearchResults(term);  // to edit later with api 
+      
+  };
 
   const addTrack = (track) =>{
     if(playlistTracks.some((savedTrack) => savedTrack.id === track.id))
