@@ -7,15 +7,28 @@ import Playlist from './Playlist/Playlist';
 function App() {
 
   const [searchResults, setSearchResults] = useState([]); 
-  const [playlistName, setPlaylistName] = useState('')
+  const [playlistName, setPlaylistName] = useState('');
+  const [playlistTracks, setPlaylistTracks] = useState([]); 
+
 
   const search = useCallback((term) =>{
     console.log(term)
   });
 
+  const addTrack = (track) =>{
+    if(playlistTracks.some((savedTrack) => savedTrack.id === track.id))
+    return;
+    
+   setPlaylistTracks((prev) => [...prev, track]) 
+  }; 
+
   const updatePlaylistName = (name) =>{
     setPlaylistName(name); 
   }
+
+  const savePlaylist = () =>{
+    const trackUris = playlistTracks
+  }; 
 
 
   return (
@@ -24,8 +37,11 @@ function App() {
       <div className='App'>
         <SearchBar onSearch={search}/>  
         <div className='App-playlist'>
-          <SearchResults /> 
-          <Playlist playlistName={playlistName} onNameChange={updatePlaylistName}/>
+          <SearchResults searchResults={searchResults} onAdd={addTrack}/> 
+          <Playlist 
+          playlistName={playlistName} 
+          onNameChange={updatePlaylistName}
+          onSave = {savePlaylist}/>
         </div>
       </div>
     </div>

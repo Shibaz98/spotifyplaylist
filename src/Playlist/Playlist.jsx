@@ -16,6 +16,9 @@ const Playlist = (props) =>{
             <TrackList
 
             />
+            <button className="Playlist-save" onClick={props.onSave}>
+                SAVE TO SPOTIFY
+            </button>
         </div>
     ); 
 };
