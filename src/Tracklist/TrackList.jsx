@@ -1,16 +1,22 @@
 import "./TrackList.css"
+import Track from "../Track/Track";
 
 const TrackList = (props) =>{
-    //return(
-      //  <div className="TrackList">
-        //   {props.tracks.map((track) =>{
-          //      return(
-                    //add track later 
-            //        <h1> test</h1>
-              //  );
-           // })}
-       // </div>
-   // );
+    return(
+        <div className="TrackList"> 
+           {props.tracks.map((track) =>{
+                return(
+                    <Track
+                      track={track}
+                      key={track.id}
+                      onAdd={props.onAdd}
+                      isRemoval={props.isRemoval}
+                      onRemove={props.onRemove}
+                    />
+                );
+            })} 
+        </div>
+    );
 };
 
 export default TrackList; 
