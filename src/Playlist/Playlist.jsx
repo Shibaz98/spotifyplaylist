@@ -15,7 +15,7 @@ const Playlist = (props) =>{
             <input onChange = {handleNameChange} defaultValue={"New Playlist"}/> 
             <TrackList
                 tracks={props.playlistTracks}
-                isRevemoval = {true}
+                isRemoval = {true}
                 onRemove = {props.onRemove}
             />
             <button className="Playlist-save" onClick={props.onSave}>
