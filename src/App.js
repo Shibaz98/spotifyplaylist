@@ -3,6 +3,8 @@ import './App.css';
 import SearchBar from './SearchBar/SearchBar';
 import SearchResults from './SearchResults/SearchResults';
 import Playlist from './Playlist/Playlist';
+import Spotify from './util/Spotify';
+
 
 function App() {
 
@@ -12,19 +14,19 @@ function App() {
 
 // work on track component and understand how the render action works with the removal and addition 
 
-  const search = (term) =>{
-      setSearchResults(term);  // to edit later with api 
+const search = useCallback((term) => {
+  Spotify.search(term).then(setSearchResults);
+}, []);
 
-  };
+const addTrack = useCallback(
+  (track) => {
+    if (playlistTracks.some((savedTrack) => savedTrack.id === track.id))
+      return;
 
-  const addTrack = (track) =>{
-      // Check if the track is already in the playlistTracks array
-    if(playlistTracks.some((savedTrack) => savedTrack.id === track.id))
-        // If the track is already in the playlistTracks, do nothing and return
-    return;
-      // If the track is not already in the playlistTracks, add it to the playlist
-   setPlaylistTracks((prev) => [...prev, track]) 
-  }; // this gets passed down to tracklist through SearchResults to add a new track. 
+    setPlaylistTracks((prevTracks) => [...prevTracks, track]);
+  },
+  [playlistTracks]
+);
 
   const removeTrack = (track) =>{ 
     setPlaylistTracks((prevTracks) =>
@@ -42,7 +44,6 @@ function App() {
       setPlaylistTracks([]);   //Once saved to spotify it resets the play list name and the play list tracks 
     })
   }; 
-
 
   return (
     <div>
