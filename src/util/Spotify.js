@@ -1,6 +1,6 @@
 const clientId = 'd44b8f2b96934ec094744e06d331d3a9';
 const clientSecret = '7fed1b8f5ce64f3089d3ef057f98137f'; 
-const redirectUri = 'https://shibaz98.github.io/spotifyplaylist/' 
+const redirectUri = 'http://localhost:3000/' 
 let accessToken; //allows accesstoken to be changed if a new one is required and makes it easy to be called from the global scope
 
 const Spotify = {
