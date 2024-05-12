@@ -38,7 +38,15 @@ h2 {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  column-gap: 20px;
 }
+
+.Preview-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 @media only screen and (max-width: 1020px) {
   .App-playlist {

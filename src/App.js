@@ -4,6 +4,7 @@ import SearchBar from './SearchBar/SearchBar';
 import SearchResults from './SearchResults/SearchResults';
 import Playlist from './Playlist/Playlist';
 import Spotify from './util/Spotify';
+import Preview from './Preview/Preview';
 
 
 function App() {
@@ -55,12 +56,14 @@ const removeTrack = useCallback((track) => {
         <SearchBar onSearch={search}/>  
         <div className='App-playlist'>
           <SearchResults searchResults={searchResults} onAdd={addTrack}/> 
+          <Preview/>
           <Playlist 
           playlistName={playlistName}  //done
           playlistTracks={playlistTracks} //done
           onNameChange={updatePlaylistName} //done
           onSave = {savePlaylist} // done
           onRemove = {removeTrack}/> 
+          
         </div>
       </div>
     </div>
