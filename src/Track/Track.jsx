@@ -10,6 +10,10 @@ const Track = (props) =>{
         props.onRemove(props.track)
     }; 
 
+    const addPreview = () =>{
+        props.addPreview(props.track)
+    };
+
 
     const renderAction = () =>{
         if(props.isRemoval) { // since isRemoval from Playlist.jsx is true, this will return a - sign for all tracks that are displayed in the playlist section 
@@ -21,7 +25,7 @@ const Track = (props) =>{
         }
         return(
             <div>
-                <button>
+                <button onClick={addPreview}>
                     Preview
                 </button>    
                 <button className="Track-action" onClick = {addTrack}>
