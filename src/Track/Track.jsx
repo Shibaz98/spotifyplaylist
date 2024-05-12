@@ -20,9 +20,14 @@ const Track = (props) =>{
             );
         }
         return(
-            <button className="Track-action" onClick = {addTrack}>
-                +
-            </button> // the default behaviour is to always return a + sign, as for search results we will need a + sign to indicate adding to a playlist
+            <div>
+                <button>
+                    Preview
+                </button>    
+                <button className="Track-action" onClick = {addTrack}>
+                    +
+                </button> 
+            </div>
         )
     };
     
