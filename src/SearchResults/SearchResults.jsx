@@ -5,7 +5,7 @@ const SearchResults = (props) =>{
     return(
         <div className="SearchResults">
             <h2>Results</h2>
-            <TrackList tracks={props.searchResults} onAdd={props.onAdd} addPreview={props.addPreview}/>
+            <TrackList tracks={props.searchResults} onAdd={props.onAdd} addPreview={props.addPreview} getSample={props.getSample}/>
         </div>
     );
 };

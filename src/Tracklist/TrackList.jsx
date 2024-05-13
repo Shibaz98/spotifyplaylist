@@ -13,6 +13,7 @@ const TrackList = (props) => {
               isRemoval={props.isRemoval}
               onRemove={props.onRemove}
               addPreview={props.addPreview}
+              getSample={props.getSample}
             />
           );
         })}

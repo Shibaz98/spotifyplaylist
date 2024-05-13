@@ -11,7 +11,8 @@ const Track = (props) =>{
     }; 
 
     const addPreview = () =>{
-        props.addPreview(props.track)
+        props.addPreview(props.track);
+        props.getSample(props.track.id)
     };
 
 
