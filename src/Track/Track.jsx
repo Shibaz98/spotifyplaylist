@@ -12,7 +12,7 @@ const Track = (props) =>{
 
     const addPreview = () =>{
         props.addPreview(props.track);
-        props.getSample(props.track.id)
+        props.getSample(props.track.id) //sends Id of  the track to the api endpoint when preview is clicked
     };
 
 

@@ -44,12 +44,14 @@ const removeTrack = useCallback((track) => {
 
   const onPreview = (track) =>{
     setPreview(track)
-    console.log(preview)
   }; 
 
   const getSample = (id) =>{
     Spotify.getPreview(id).then(setSample)
   };
+
+  console.log(sample.album.images[1].url)
+
 
   const savePlaylist = useCallback(() => {
     const trackUris = playlistTracks.map((track) => track.uri);
