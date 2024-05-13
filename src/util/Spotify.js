@@ -75,9 +75,23 @@ const Spotify = {
             });
           });
         });
-      }
+      },
+
+      getPreview(id){
+        const accessToken = Spotify.getAccessToken();
+        const headers = { Authorization: `Bearer ${accessToken}` }
+
+        return fetch(`https://api.spotify.com/v1/tracks/${id}`, {headers:headers}).then(response => response.json()
+        ).then(jsonResponse => console.log(jsonResponse))
+       
+      
+        
+
+
+      },
     
 };
 
+// end point for track (search for preview_url https://api.spotify.com/v1/tracks/{id})
 
 export default Spotify; 
