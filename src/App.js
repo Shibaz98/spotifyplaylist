@@ -13,7 +13,8 @@ function App() {
   const [playlistName, setPlaylistName] = useState('');
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [preview, setPreview] = useState([]);
-  const [sample, setSample] = useState('')  
+  const [sample, setSample] = useState([]);
+  const [image, setImage] = useState('');
 
 // work on track component and understand how the render action works with the removal and addition 
 
@@ -46,11 +47,10 @@ const removeTrack = useCallback((track) => {
     setPreview(track)
   }; 
 
-  const getSample = (id) =>{
+  const getSample = useCallback((id) =>{
     Spotify.getPreview(id).then(setSample)
-  };
+  }, [])
 
-  console.log(sample.album.images[1].url)
 
 
   const savePlaylist = useCallback(() => {
@@ -68,7 +68,7 @@ const removeTrack = useCallback((track) => {
         <SearchBar onSearch={search}/>  
         <div className='App-playlist'>
           <SearchResults searchResults={searchResults} onAdd={addTrack} addPreview={onPreview} getSample={getSample}/> 
-          <Preview track={preview}/>
+          <Preview track={preview} sample={sample}/>
           <Playlist 
           playlistName={playlistName}  //done
           playlistTracks={playlistTracks} //done
