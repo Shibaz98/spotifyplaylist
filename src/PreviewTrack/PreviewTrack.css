@@ -1,7 +1,18 @@
+.preview-container{
+    display: flex;
+    align-items: center;
+    justify-content: center
+};
+
 .preview-information{
     margin-top:10px; 
 }
 
 img{
-    width: 250px;
+    width: 300px;
+    height: 250px;
+}
+
+.preview-information > p, .preview-information > h3{
+    text-align: center;
 }
