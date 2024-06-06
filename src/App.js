@@ -24,9 +24,11 @@ const search = useCallback((term) => {
 
 const addTrack = useCallback(
   (track) => {
+        // Check if any track in playlistTracks has the same id as the new track
     if (playlistTracks.some((savedTrack) => savedTrack.id === track.id))
-      return;
+      return; // If such a track is found, return immediately without making changes
 
+          // If no track with the same id is found, add the new track to the playlistTracks
     setPlaylistTracks((prevTracks) => [...prevTracks, track]);
   },
   [playlistTracks]
