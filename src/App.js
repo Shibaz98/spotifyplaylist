@@ -28,7 +28,7 @@ const addTrack = useCallback(
     if (playlistTracks.some((savedTrack) => savedTrack.id === track.id))
       return; // If such a track is found, return immediately without making changes
 
-          // If no track with the same id is found, add the new track to the playlistTracks
+          // If no track with the same id is found, add the new track to the playlistTracks›
     setPlaylistTracks((prevTracks) => [...prevTracks, track]);
   },
   [playlistTracks]

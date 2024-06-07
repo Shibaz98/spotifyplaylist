@@ -1,8 +1,4 @@
-.preview-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .preview-information{
     margin-top:10px; 
@@ -14,6 +10,11 @@ img{
     height: 250px;
 }
 
-.preview-information > p, .preview-information > h3{
+.preview-information{
     text-align: center;
 }
+
+.preview-information > audio{
+    margin-top: 5px;
+}
+
